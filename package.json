@@ -1,0 +1,17 @@
+{
+  "name": "maria",
+  "version": "1.0.0",
+  "description": "Site para confirmacao de convites",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.14.0",
+    "mysql": "^2.11.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Lucas Carvalho",
+  "license": "ISC"
+}

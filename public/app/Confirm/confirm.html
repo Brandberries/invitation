@@ -1,0 +1,101 @@
+<html>
+	<head>
+
+		<meta charset="utf-8" /> 
+
+
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
+
+		<meta name="viewport" content="width=device-width">
+
+		<link href="https://fonts.googleapis.com/css?family=Dancing+Script:700" rel="stylesheet">
+
+		<style>
+
+			#c1 {
+			 background-color: #ffb3d1;
+			}
+			#placeholder{
+				text-align: center;
+				color: black;
+			}
+
+			h1{
+				font-family: 'Dancing Script', cursive;
+				font-size: 80px;
+			}
+
+			.vcenter {
+				display: inline-block;
+				vertical-align: middle;
+				float: none;
+			}
+
+			body { 
+				background: url(/app/resources/crowd.jpg) no-repeat center center fixed; 
+				-webkit-background-size: cover;
+				-moz-background-size: cover;
+				-o-background-size: cover;
+				background-size: cover;
+			}
+
+			
+		</style>
+
+		<script src="/app/app.js"> </script>
+		<script src="/app/Confirm/ConfirmService.js"> </script>
+		<script src="/app/Confirm/ConfirmController.js"> </script>
+		
+
+	</head>
+	<body ng-app="maria">
+
+	<div ng-controller="ConfirmCtrl" style="box-shadow: 10px 10px 5px #888888;">
+		<div class="row" style="height: 100%">
+			<div class="col-md-12" style="margin-top:12%">
+
+				<div class="row" id="c1" align="center"> 
+				
+				<div>
+					<h1>Confirme sua presença!</h1>
+				</div>
+
+
+				<div > 
+					<md-input-container>
+						<label id="placeholder">Código do convite</label>
+						<input ng-model="code">
+					</md-input-container> 
+				</div>
+
+				<div >
+					<md-input-container>
+						<label id="placeholder">Três letras do seu nome</label>
+						<input ng-model="name">
+					</md-input-container> 
+				</div>
+
+				<div >
+					<md-button class="md-raised md-primary" ng-click="showConfirm($event)">BUSCAR</md-button>
+				</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+
+
+	</body>
+
+</html>
+
