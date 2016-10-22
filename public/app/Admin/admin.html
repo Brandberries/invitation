@@ -26,46 +26,33 @@
 		</style>
 		
 		<script src="/app/app.js"> </script>
+		<script src="/app/ConfigService.js"> </script>
 		<script src="/app/Admin/AdminService.js"> </script>
 		<script src="/app/Admin/AdminController.js"> </script>
 	</head>
 	<body ng-app="maria" ng-controller="AdminCtrl">
 		
 		<div class="row">
-			<div class="col-md-4 form-group col-centered">
-				<form class="navbar-form" role="search">
-					<div class="form-group input-group col-md-12">
-						<input type="text" class="form-control" placeholder="Nome do convidado" name="q" ng-model="invitee" autofocus>
-						<div class="input-group-btn">
-							<button class="btn form-control btn-default btn" type="submit" ng-click="newInvitee()"><i class="glyphicon glyphicon-plus"></i></button>
-						</div>
-					</div>
-				</form>
-			</div>
-		</div>
-
-
-		<div class="row">
 			<div class="col-md-4 col-centered">
 				<table class="table ">
 					<thead>
 						<tr>
-							<td>Nome</td>
-							<td>Codigo</td>
-							<td>Situacao</td>
-							<td>Remover</td>
+							<th>Nome</th>
+							<!-- <td>Remover</td> -->
 						</tr>
 					</thead>
 					<tbody>
 						<tr ng-repeat="ai in allInvites">
 							<td>{{ai.name}}</td>
-							<td>{{ai.code}}</td>
-							<td>{{ai.status}}</td>
-							<td><i class="glyphicon glyphicon-remove" style="color:red"></i></td>
+							<!-- <td><i class="glyphicon glyphicon-remove" style="color:red"></i></td> -->
 						</tr>
 						
 					</tbody>
 				</table>
+
+				<div align=center>
+					<h2> Confirmados: {{allInvites.length}} </h2>
+				</div>
 			</div>
 		</div>	
 

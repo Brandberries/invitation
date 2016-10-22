@@ -1,11 +1,13 @@
-app.service('ConfirmService', function($http){
-	this.validateInvitation = function(code, name, callback){
-		console.log('test')
-		return $http.get('http://localhost:3000/invitation/get', {params: {name: name, code: code}})
+app.service('ConfirmService', function($http, ConfigService){
+	
+	this.newInvitee = function(name, callback){
+		return $http.post('http://'+ConfigService.server+':'+ConfigService.port+'/invitee/new', {}, {params: {name: name}})
 			.success(function(data){
-				callback(data);
+				callback(true);
 			})
-
-			
+			.error(function(data){
+				callback(false);
+			})
 	}
 })
+

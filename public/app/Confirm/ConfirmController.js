@@ -1,40 +1,36 @@
 
-app.controller('ConfirmCtrl', function($scope, $mdDialog, ConfirmService, $http){
+app.controller('ConfirmCtrl', function($scope, $mdDialog, ConfirmService, ConfigService, $http){
 
+	$scope.text_confirmation = "";
+	$scope.confirmed = false;
+	
 	$scope.showConfirm = function(ev){
 
-		ConfirmService.validateInvitation($scope.code, $scope.name, function(data){
-			confirmContent = data[0].name + ', deseja confirmar sua presença?';
+		confirmContent = $scope.name + ', deseja confirmar sua presença?';
 
-			var confirm = $mdDialog.confirm()
-				.title('FESTA DE ANIVERSÁRIO - MARIA 15 ANOS')
-				.textContent(confirmContent)
-				.ariaLabel('ariaLabel')
-				.targetEvent(ev)
-				.ok('SIM')
-				.cancel('NÃO');				
+		var confirm = $mdDialog.confirm()
+			.title('FESTA DE ANIVERSÁRIO - MARIA 15 ANOS')
+			.textContent(confirmContent)
+			.ariaLabel('ariaLabel')
+			.targetEvent(ev)
+			.ok('SIM')
+			.cancel('NÃO');				
 
-			$mdDialog.show(confirm).then(function(){
-				console.log('OK');
-
-			}, function(){
-				console.log('CANCEL');
+		$mdDialog.show(confirm).then(function(){
+			ConfirmService.newInvitee($scope.name , function(success){
+				if(success){
+					$scope.name = "";
+					$scope.confirmed = true;
+					$scope.text_confirmation = "Confirmação feita com sucesso";
+				}
+				else{
+					$scope.confirmed = false;
+					$scope.text_confirmation = "Erro ao realizar confirmação. Tente novamente mais tarde.";
+				}
 			})
-		})
 
-		 // $http.get('http://localhost:3000/invitation/get', {params: {name: $scope.name, code: $scope.code}})
-			// .success(function(data){
-
-			// 	console.log(data);
-				
-
-
-				
-			// })
-
-
-		
-
-		
+		}, function(){
+			//Not confirmed	
+		})		
 	}
 })

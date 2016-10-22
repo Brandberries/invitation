@@ -3,7 +3,7 @@ var router = express.Router();
 
 var Invitee = require('./model')
 
-router.put('/new', function(req, res){
+router.post('/new', function(req, res){
 	i = new Invitee(req.query.name);
 
 	i.save(function(inserted){
