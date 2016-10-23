@@ -1,4 +1,4 @@
 app.service('ConfigService', function(){
-	this.server = 'localhost';
-	this.port = '3000';
+	this.server = '52.33.81.35';
+	this.port = '80';
 })
